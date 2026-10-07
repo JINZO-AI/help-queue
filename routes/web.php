@@ -8,6 +8,6 @@ Route::get('/', function () {
 Route::get('/hello', function () {
     return 'Hello from Laravel!';
 });
-git add .
-git commit -m "TP1-CP2: first route"
-git push
+Route::get('/hello/{name}', function (string $name) {
+    return "Hello $name!";
+});
