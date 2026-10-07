@@ -8,7 +8,7 @@
 
 @forelse ($tickets as $ticket)
 <article class="ticket">
-    <strong>{{ $loop->iteration }}. {{ $ticket->name }}</strong>
+    <strong>{{ $loop->iteration }}. <a href="/tickets/{{ $ticket->id }}">{{ $ticket->name }}</a></strong>
     <span class="topic">{{ $ticket->topic }}</span>
     <p>{{ $ticket->description }}</p>
 </article>
