@@ -17,3 +17,9 @@ Question 3:
 - I get 404 Not Found
 - Laravel reads routes from top to bottom
 - /tickets/create matches /tickets/{ticket} first, so it looks for a ticket called "create" and finds nothing
+  
+Question 4:
+
+- Without @csrf I get 419 Page Expired (I saw it with curl, because the browser form still worked in this Laravel version)
+- The token protects against CSRF attacks: another website sending a form to my site in my name, using my session
+  
