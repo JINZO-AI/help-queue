@@ -22,4 +22,13 @@ Question 4:
 
 - Without @csrf I get 419 Page Expired (I saw it with curl, because the browser form still worked in this Laravel version)
 - The token protects against CSRF attacks: another website sending a form to my site in my name, using my session
-  
+
+Question 5:
+
+- The name I typed is still in the box
+- The part of the view responsible is value="{{ old('name') }}" in the name input
+
+Question 6:
+
+- Because the browser can be changed by the user (developer tools), so anyone can send any value
+- The server must check the data again: here Rule::in refused Cooking
