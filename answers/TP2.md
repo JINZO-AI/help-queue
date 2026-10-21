@@ -37,3 +37,19 @@ Question 7:
 
 - _token: the CSRF token, Laravel checks it to be sure the form comes from my site
 - _method with value DELETE: browsers can only send GET and POST, so this tells Laravel to treat the request as DELETE
+
+Routes before Route::resource:
+
+GET|HEAD   tickets ........ tickets.index > TicketController@index
+POST       tickets ........ tickets.store > TicketController@store
+GET|HEAD   tickets/create tickets.create > TicketController@create
+GET|HEAD   tickets/{ticket} . tickets.show > TicketController@show
+DELETE     tickets/{ticket} tickets.destroy > TicketController@destroy
+
+Showing [5] routes
+
+Question 8:
+
+- Nothing changed: same 5 routes, same URLs, same names, same controller methods
+- Route::resource creates the 5 routes in one line (only() chooses which ones)
+- It works with my controller because I already used the standard names: index, create, store, show, destroy, and the route names tickets.index, tickets.store...
