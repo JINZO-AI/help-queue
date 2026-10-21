@@ -8,11 +8,21 @@ use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $tickets = Ticket::orderBy('created_at')->get();
+        $topic = $request->query('topic');
 
-        return view('tickets.index', ['tickets' => $tickets]);
+        $query = Ticket::orderBy('created_at');
+
+        if ($topic) {
+            $query->where('topic', $topic);
+        }
+
+        return view('tickets.index', [
+            'tickets' => $query->get(),
+            'topics' => Ticket::TOPICS,
+            'currentTopic' => $topic,
+        ]);
     }
 
     public function show(Ticket $ticket)
