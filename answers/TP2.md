@@ -53,3 +53,22 @@ Question 8:
 - Nothing changed: same 5 routes, same URLs, same names, same controller methods
 - Route::resource creates the 5 routes in one line (only() chooses which ones)
 - It works with my controller because I already used the standard names: index, create, store, show, destroy, and the route names tickets.index, tickets.store...
+  
+
+Final questions
+
+1. Why did /tickets/create answer 404 before its route was moved?
+
+- Laravel checks routes from top to bottom
+- /tickets/create matched /tickets/{ticket} first, with {ticket} = "create"
+- No ticket called "create" exists, so Laravel answered 404 before reaching the create route
+
+2. What does @csrf protect against, and which error do you get without it?
+
+- It protects against CSRF attacks: another website sending a form to my site using my session
+- Without it I get 419 Page Expired
+
+3. Why must validation run on the server, even when the form already limits the choices?
+
+- The user can change the page in the browser (developer tools) and send any value
+- Only the server can be trusted, so it must check the data again (Rule::in refused Cooking)
