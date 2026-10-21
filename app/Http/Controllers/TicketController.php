@@ -37,4 +37,11 @@ class TicketController extends Controller
 
         return redirect()->route('tickets.index')->with('message', 'You are in the queue!');
     }
+
+    public function destroy(Ticket $ticket)
+    {
+        $ticket->delete();
+
+        return redirect()->route('tickets.index')->with('message', 'Ticket removed.');
+    }
 }

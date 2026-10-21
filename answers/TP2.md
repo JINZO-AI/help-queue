@@ -32,3 +32,8 @@ Question 6:
 
 - Because the browser can be changed by the user (developer tools), so anyone can send any value
 - The server must check the data again: here Rule::in refused Cooking
+
+Question 7:
+
+- _token: the CSRF token, Laravel checks it to be sure the form comes from my site
+- _method with value DELETE: browsers can only send GET and POST, so this tells Laravel to treat the request as DELETE
