@@ -11,3 +11,9 @@ Question 2:
 - select * from "tickets" where "status" = ? order by "id" asc
 - The scope adds the where on status and the order by id
 - The ? is replaced by the value waiting
+
+Question 3:
+
+- 6 people are ahead of me
+- It is correct: I counted 6 tickets above mine in the Waiting section (I am number 7)
+- The controller counts the waiting tickets with an id smaller than mine

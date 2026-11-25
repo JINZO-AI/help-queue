@@ -10,6 +10,10 @@
 
 <p>Asked {{ $ticket->created_at->diffForHumans() }}</p>
 
+@if ($ticket->status === 'waiting')
+<p><strong>{{ $ahead }}</strong> {{ $ahead === 1 ? 'person' : 'people' }} ahead of you.</p>
+@endif
+
 @if ($ticket->status !== 'done')
 <form method="POST" action="{{ route('tickets.update', $ticket) }}">
     @csrf
