@@ -17,3 +17,9 @@ Question 3:
 - 6 people are ahead of me
 - It is correct: I counted 6 tickets above mine in the Waiting section (I am number 7)
 - The controller counts the waiting tickets with an id smaller than mine
+
+Question 4:
+
+- The badges show JSON like {"id":4,"name":"Database","created_at":...}
+- $ticket->topic is now the relationship, so it gives the whole Topic object and Blade prints it as JSON
+- To show only the name I must write $ticket->topic->name

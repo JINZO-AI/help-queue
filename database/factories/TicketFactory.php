@@ -19,7 +19,6 @@ class TicketFactory extends Factory
     {
         return [
             'name' => fake()->firstName(),
-            'topic' => fake()->randomElement(Ticket::TOPICS),
             'description' => fake()->sentence(),
         ];
     }
