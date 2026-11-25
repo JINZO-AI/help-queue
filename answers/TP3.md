@@ -35,3 +35,9 @@ Question 6:
 - I clicked Laravel and the page shows 3 tickets (Sven, Forest, Barney)
 - It matches the queue page, where 3 tickets have the Laravel badge
 - The page gets them with $topic->tickets(), the relationship from Topic to its tickets
+  
+  Question 7:
+
+- The list contains 10 items, the same as the 10 waiting tickets
+- The topic object has 4 fields: id, name, created_at, updated_at
+- A mobile app, a Python script, or a tool like Postman or curl could use this data
