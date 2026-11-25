@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Validation\Rule;
 use App\Models\Ticket;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -11,8 +12,8 @@ class TicketController extends Controller
     public function index()
     {
         return view('tickets.index', [
-            'helping' => Ticket::helping()->get(),
-            'waiting' => Ticket::waiting()->get(),
+            'helping' => Ticket::with('topic')->helping()->get(),
+            'waiting' => Ticket::with('topic')->waiting()->get(),
             'doneCount' => Ticket::where('status', 'done')->count(),
         ]);
     }
@@ -25,14 +26,14 @@ class TicketController extends Controller
 
     public function create()
     {
-        return view('tickets.create', ['topics' => Ticket::TOPICS]);
+        return view('tickets.create', ['topics' => Topic::orderBy('name')->get()]);
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:50'],
-            'topic' => ['required', Rule::in(Ticket::TOPICS)],
+            'topic_id' => ['required', 'exists:topics,id'],
             'description' => ['nullable', 'string', 'max:500'],
         ]);
 

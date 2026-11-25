@@ -23,3 +23,9 @@ Question 4:
 - The badges show JSON like {"id":4,"name":"Database","created_at":...}
 - $ticket->topic is now the relationship, so it gives the whole Topic object and Blade prints it as JSON
 - To show only the name I must write $ticket->topic->name
+
+Question 5:
+
+- I get "The selected topic id is invalid."
+- The rule is 'topic_id' => ['required', 'exists:topics,id'] in store()
+- There is no topic with id 99 in the topics table, so the server refuses it

@@ -20,21 +20,21 @@
 
     <p>
 
-        <label for="topic">Topic</label><br>
+        <label for="topic_id">Topic</label><br>
 
-        <select id="topic" name="topic">
+        <select id="topic_id" name="topic_id">
 
-            <option value="">-- choose --</option>
+            <option value="">— choose —</option>
 
             @foreach ($topics as $topic)
 
-            <option value="{{ $topic }}" @selected(old('topic')===$topic)>{{ $topic }}</option>
+            <option value="{{ $topic->id }}" @selected(old('topic_id')==$topic->id)>{{ $topic->name }}</option>
 
             @endforeach
 
         </select>
 
-        @error('topic') <br><small class="error">{{ $message }}</small> @enderror
+        @error('topic_id') <br><small class="error">{{ $message }}</small> @enderror
 
     </p>
 
