@@ -10,6 +10,15 @@
 
 <p>Asked {{ $ticket->created_at->diffForHumans() }}</p>
 
+@if ($ticket->status !== 'done')
+<form method="POST" action="{{ route('tickets.update', $ticket) }}">
+    @csrf
+    @method('PATCH')
+    <input type="hidden" name="status" value="{{ $ticket->status === 'waiting' ? 'helping' : 'done' }}">
+    <button type="submit">{{ $ticket->status === 'waiting' ? 'Start helping' : 'Mark as done' }}</button>
+</form>
+@endif
+
 <form method="POST" action="{{ route('tickets.destroy', $ticket) }}" onsubmit="return confirm('Remove this ticket?')">
 
     @csrf

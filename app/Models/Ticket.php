@@ -11,6 +11,8 @@ class Ticket extends Model
 
     public const TOPICS = ['Git', 'Laravel', 'Blade', 'Database', 'Setup'];
 
+    public const STATUSES = ['waiting', 'helping', 'done'];
+
     protected $fillable = [
         'name',
         'topic',
