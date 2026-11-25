@@ -29,3 +29,9 @@ Question 5:
 - I get "The selected topic id is invalid."
 - The rule is 'topic_id' => ['required', 'exists:topics,id'] in store()
 - There is no topic with id 99 in the topics table, so the server refuses it
+
+Question 6:
+
+- I clicked Laravel and the page shows 3 tickets (Sven, Forest, Barney)
+- It matches the queue page, where 3 tickets have the Laravel badge
+- The page gets them with $topic->tickets(), the relationship from Topic to its tickets
