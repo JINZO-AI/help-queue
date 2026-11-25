@@ -41,3 +41,9 @@ Question 6:
 - The list contains 10 items, the same as the 10 waiting tickets
 - The topic object has 4 fields: id, name, created_at, updated_at
 - A mobile app, a Python script, or a tool like Postman or curl could use this data
+  
+  Question 8:
+
+- No, my neighbour's project did not start: I get 404 Not Found on every page
+- Their routes/web.php file contains the code of TicketController instead of the routes, so the app has no routes
+- Their README also has no installation steps (it is still the default Laravel README), the steps clone, composer install, npm install, cp .env.example .env, key:generate, migrate --seed and composer run dev are missing
