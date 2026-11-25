@@ -47,3 +47,16 @@ Question 6:
 - No, my neighbour's project did not start: I get 404 Not Found on every page
 - Their routes/web.php file contains the code of TicketController instead of the routes, so the app has no routes
 - Their README also has no installation steps (it is still the default Laravel README), the steps clone, composer install, npm install, cp .env.example .env, key:generate, migrate --seed and composer run dev are missing
+
+Bonus:
+
+- The error now says "The topic field is required." because validate() has the third argument ['topic_id' => 'topic']
+- The Topic menu shows the number of tickets per topic (Database 4, Laravel 3, Setup 2, Git 1) with Topic::withCount('tickets') and $topic->tickets_count
+
+Final questions:
+
+1. Ticket::waiting() gives only the tickets with the status waiting, ordered by id. A scope is better than repeating the where because the rule is written once, it has a clear name, and if it changes I only change it in one place.
+
+2. The tickets table holds the topic_id column. A ticket belongs to one topic, so each ticket stores the id of its topic. A topic has many tickets, so it cannot store many ids in one column.
+
+3. Anyone who can send an HTTP request: a mobile app, a Python script, a tool like Postman or curl, or another website that shows the queue.

@@ -28,7 +28,7 @@
 
             @foreach ($topics as $topic)
 
-            <option value="{{ $topic->id }}" @selected(old('topic_id')==$topic->id)>{{ $topic->name }}</option>
+            <option value="{{ $topic->id }}" @selected(old('topic_id')==$topic->id)>{{ $topic->name }} ({{ $topic->tickets_count }})</option>
 
             @endforeach
 

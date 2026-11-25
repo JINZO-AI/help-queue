@@ -26,7 +26,7 @@ class TicketController extends Controller
 
     public function create()
     {
-        return view('tickets.create', ['topics' => Topic::orderBy('name')->get()]);
+        return view('tickets.create', ['topics' => Topic::withCount('tickets')->orderBy('name')->get()]);
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class TicketController extends Controller
             'name' => ['required', 'string', 'max:50'],
             'topic_id' => ['required', 'exists:topics,id'],
             'description' => ['nullable', 'string', 'max:500'],
-        ]);
+        ], [], ['topic_id' => 'topic']);
 
         Ticket::create($validated);
 
